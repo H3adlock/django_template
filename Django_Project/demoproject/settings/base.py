@@ -1,11 +1,12 @@
 import os
+from decouple import config
 
 BASE_DIR = os.path.dirname(
     os.path.dirname(
         os.path.dirname(
             os.path.abspath(__file__))))
 
-SECRET_KEY = '-4b4szco7mv-3cyx%w09cjqrsyu)r#h%b9%zgwk^ub%h^m01+)'
+SECRET_KEY = config('SECRET_KEY')
 
 
 INSTALLED_APPS = [
@@ -15,6 +16,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'core',
 ]
 
 MIDDLEWARE = [
@@ -27,7 +30,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'template.urls'
+ROOT_URLCONF = 'demoproject.urls'
 
 TEMPLATES = [
     {
@@ -45,7 +48,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'template.wsgi.application'
+WSGI_APPLICATION = 'demoproject.wsgi.application'
 
 LANGUAGE_CODE = 'en-us'
 
